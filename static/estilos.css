@@ -1,0 +1,75 @@
+html { background-color: papayawhip;
+      margin: 0;
+} 
+body {
+    background-color: papayawhip; 
+    margin: 0;
+}
+
+.form-signin{
+  background-image: url('/diosa.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0px 40px;
+  border-radius: 10px;
+
+}
+
+.container {
+  margin-top: 10px;
+  max-width: auto;
+}
+
+.form-control {
+  background-color: #889C9B;
+  color: #0b0b0b;
+  border-color: #3B3936;
+
+}
+
+.btn-primary {
+  background-color: #BD2A2E;
+  border-color: #BD2A2E;
+}
+
+.btn-primary:hover {
+  background-color: #3B3936;
+  border-color: #3B3936;
+}
+
+label {
+  margin-right: 10px;
+  color: #292f30;
+}
+
+select {
+  width: 150px;
+  margin-right: 10px;
+}
+
+#form-container {
+  margin-top: 50px;
+  padding: 8px;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    background-color: #96abaa;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-color: #0b0b0b;
+    border-radius: 0.3rem;
+    line-height: 1.5;
+}
+
+
+.title {
+  text-align:center;
+}
+
+.mb-4{
+  padding: 5px;
+}
