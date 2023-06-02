@@ -1,8 +1,8 @@
 <script>
   import { onMount } from 'svelte';
-    import { text } from 'svelte/internal';
-  var mensaje = ''
+  
   var resultados = []
+  var conteos = []
 
   var requestSearch = {
     text: '',
@@ -13,10 +13,7 @@
   }
 
   onMount(async () => {
-		var response = await fetch('http://localhost:5000/mensaje')
-    mensaje = await response.text()
-
-    response = await fetch('http://localhost:5000/resultados')
+    var response = await fetch('http://localhost:5000/resultados')
     resultados = await response.json()
 	});
 
@@ -31,10 +28,21 @@
     resultados = await response.json()
   }
 
+  async function count(){
+    conteos = []
+    if(requestSearch.anio == '') return alert('Selecciona año')
+    var response = await fetch('http://localhost:5000/count', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestSearch)
+    })
+    conteos = await response.json()
+  }
 
 </script>
 <div class="container">
-  <h1>{mensaje}</h1>
   <main class="form-signin w-100 m-auto">
     <form>
       <img class="mb-4" src="/logo_corte.png" alt="" width="72" height="57">
@@ -81,9 +89,29 @@
       <div class="checkbox mb-3">
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="button" on:click={search}>Buscar</button>
+      <div class="count">
+      <button class="w-100 btn btn-lg btn-primary" type="button" on:click={count}>Contar</button>
+      </div>
       <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
     </form>
-  </main>  
+  </main>
+  {#if conteos.length > 0}
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6" id="form-container">
+      <ul>
+        {#each conteos as item}
+          <li>
+            <strong>{item.tipo_providencia}</strong>
+            <br>
+            <p>{item.count}</p>
+          </li>
+        {/each}
+      </ul>
+    </div>
+  </div>
+  {/if}
   <div class="row justify-content-center">
     <div class="col-md-6">
     </div>
