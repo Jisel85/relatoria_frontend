@@ -40,8 +40,26 @@
     })
     conteos = await response.json()
   }
-
+//
+  let year = new Date().getFullYear();
+  import Footer from './Footer.svelte';
+  import Header from './Header.svelte';
+  import { currentPage } from './store.js';
+  import Estadisticas from './Estadisticas.svelte';
+  import Info from './Info.svelte';
+  import Contacto from './Contacto.svelte'
+  import Chatbox from './Chatbox.svelte'
+//
 </script>
+
+<div>
+  <Header />
+
+  {#if $currentPage === 'home'}
+  <!-- home -->
+{:else if $currentPage === 'informacion-corte'}
+  <Info />
+{:else if $currentPage === 'buscador-relatoria'}
 <div class="container">
   <main class="form-signin w-100 m-auto">
     <form>
@@ -127,4 +145,17 @@
       </ul>
     </div>
   </div>
+</div>
+  <!-- Componente o contenido del buscador de relatoría -->
+{:else if $currentPage === 'estadisticas'}
+  <Estadisticas />
+{:else if $currentPage === 'contacto'}
+  <Contacto />
+{:else if $currentPage === 'chatbox'}
+<Chatbox />
+{/if}
+</div>
+
+<div>
+  <Footer />
 </div>
