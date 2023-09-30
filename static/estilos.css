@@ -1,12 +1,11 @@
-html { background-color: white;
-      margin: 0;
-} 
-body {
-    background-color: white; 
-    margin: 0;
+html {
+  background-color: white;
+  margin: 0;
+  height: 100%;
 }
 
-.form-signin{
+
+.form-signin {
   background-image: url('/diosa.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -55,37 +54,35 @@ select {
 }
 
 .flex-container {
-    display: flex;
-    background-color: #96abaa;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    border-color: #0b0b0b;
-    border-radius: 0.3rem;
-    line-height: 1.5;
+  display: flex;
+  background-color: #96abaa;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-color: #0b0b0b;
+  border-radius: 0.3rem;
+  line-height: 1.5;
 }
 
 
 .title {
-  text-align:center;
+  text-align: center;
 }
 
-.mb-4{
+.mb-4 {
   padding: 5px;
 }
 
-.count{
+.count {
   margin-top: 10px;
 }
 
-.card{
+.card {
   display: flex;
   justify-content: center;
-  /*align-items: flex-end;*/
   background-color: white;
   border-radius: 0.3rem;
   line-height: 1.5;
-  /*max-width: 25rem; */
   padding: 20%;
   border: none;
 }
@@ -95,12 +92,18 @@ footer {
   color: #ecf0f1;
   padding: 20px 0;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
 }
+
 .social-icons a {
   margin: 0 10px;
   color: #ecf0f1;
   text-decoration: none;
 }
+
 .sites-interest a {
   margin: 0 10px;
   color: #3498db;
@@ -109,16 +112,16 @@ footer {
 
 nav {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
   background-color: #2c3e50;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 button {
   background: none;
   border: none;
-  color: #ecf0f1;  /* color blanco */
+  color: #ecf0f1;
   font: inherit;
   cursor: pointer;
   padding: 5px 10px;
@@ -132,7 +135,7 @@ button:hover {
 
 button:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 173, 239, 0.5);  /* un sutil resplandor azul al enfocar */
+  box-shadow: 0 0 5px rgba(0, 173, 239, 0.5);
 }
 
 .estadisticas {
@@ -141,6 +144,7 @@ button:focus {
   gap: 10px;
   padding: 20px;
 }
+
 .dato {
   padding: 10px;
   border: 1px solid #bdc3c7;
@@ -152,12 +156,6 @@ button:focus {
   color: blue;
 }
 
-.header {
-  text-align: center;
-  padding: 20px;
-  background-color: #2c3e50;
-  color: #ecf0f1;
-}
 
 .images {
   display: flex;
@@ -191,4 +189,37 @@ button:focus {
   color: #3498db;
   text-decoration: none;
   margin-right: 15px;
+}
+
+.container-corte {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.container-corte img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+h1 {
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.tema {
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.tema h2 {
+  margin-top: 0;
 }
