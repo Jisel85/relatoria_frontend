@@ -2,8 +2,6 @@
   import { currentPage } from './store.js';
 </script>
 
-<!-- ... estilos ... -->
-
 <nav>
   <button on:click={() => $currentPage = 'home'}>Inicio</button>
   <button on:click={() => $currentPage = 'informacion-corte'}>Información de la Corte Constitucional</button>

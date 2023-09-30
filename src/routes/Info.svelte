@@ -1,8 +1,3 @@
-<div class="header">
-  <h1>Corte Constitucional de Colombia</h1>
-  <p>Defensora de los derechos y libertades constitucionales</p>
-</div>
-
 <div class="images">
   <img src="/poblacion_migrante_menor_de_edad.jpg" alt="Descripción de la imagen 1" width="350" />
   <img src="/arroyo_bruno.jpg" alt="Descripción de la imagen 2" width="350" />
