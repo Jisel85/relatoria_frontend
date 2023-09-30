@@ -1,12 +1,15 @@
-<script>
-  import { currentPage } from './store.js';
-</script>
 
 <nav>
-  <button on:click={() => $currentPage = 'home'}>Inicio</button>
-  <button on:click={() => $currentPage = 'informacion-corte'}>Información de la Corte Constitucional</button>
-  <button on:click={() => $currentPage = 'buscador-relatoria'}>Buscador de Relatoría Judicial</button>
-  <button on:click={() => $currentPage = 'estadisticas'}>Estadísticas</button>
-  <button on:click={() => $currentPage = 'chatbox'}>Chatbot jurídico</button>
-  <button on:click={() => $currentPage = 'contacto'}>Contacto</button>
+  <a href='/'>Inicio</a>
+  <a href='/info'>Información de la Corte Constitucional</a>
+  <a href='/buscador'>Buscador de Relatoría Judicial</a>
+  <a href='/estadisticas'>Estadísticas</a>
+  <a href='/chatbot'>Chatbot jurídico</a>
+  <a href='/contacto'>Contacto</a>
 </nav>
+
+<style>
+  a{
+    color: white;
+  }
+</style>
