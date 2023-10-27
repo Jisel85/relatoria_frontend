@@ -123,6 +123,11 @@
             <li>
               <strong>{item.title}</strong>
               <br>
+              <p><strong>Resumen</strong>
+              <br>
+              {item.summary}
+              </p>
+              <br>
               <p>{item.description}</p>
             </li>
           {/each}

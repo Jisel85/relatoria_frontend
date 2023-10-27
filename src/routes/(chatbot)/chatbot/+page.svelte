@@ -22,7 +22,7 @@
   <div class="chatbox">
     <div class="image">
       <img
-        src="/chatbot_post.png"
+        src="/img_diosa_loros.png"
         alt="Descripción de la imagen 1"
         width="20%"
       />
