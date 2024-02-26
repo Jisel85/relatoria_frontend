@@ -6,16 +6,16 @@
 <style>
   /* Estilos para centrar el iframe */
   .iframe-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 75vh;
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 2rem;
   }
 
   /* Ajuste opcional para que el iframe sea responsivo */
   .iframe-container iframe {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
   }
 </style>
 
