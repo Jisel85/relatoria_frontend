@@ -1,38 +1,25 @@
+<!-- App.svelte -->
 <script>
-    let datos = [
-      { nombre: "Casos Procesados", valor: 1500 },
-      { nombre: "Casos Pendientes", valor: 200 },
-      { nombre: "Casos Exitosos", valor: 1350 },
-      { nombre: "Casos Denegados", valor: 150 },
-    ];
-  
-    // Estadísticas Descriptivas Ficticias
-    let media = 1000;
-    let mediana = 950;
-    let moda = "Casos Exitosos";
-    let desviacionEstandar = 150;
-  </script>
+  // Este componente no necesita ninguna lógica específica en este caso
+</script>
 
-<div class="estadisticas">
-    <h1>Estadísticas Descriptivas</h1>
-  
-    {#each datos as dato (dato.nombre)}
-      <div class="dato">
-        <strong>{dato.nombre}:</strong> {dato.valor}
-      </div>
-    {/each}
-  
-    <h2>Resumen Estadístico</h2>
-    <div class="dato">
-      <strong>Media:</strong> {media}
-    </div>
-    <div class="dato">
-      <strong>Mediana:</strong> {mediana}
-    </div>
-    <div class="dato">
-      <strong>Moda:</strong> {moda}
-    </div>
-    <div class="dato">
-      <strong>Desviación Estándar:</strong> {desviacionEstandar}
-    </div>
-  </div>
+<style>
+  /* Estilos para centrar el iframe */
+  .iframe-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 75vh;
+  }
+
+  /* Ajuste opcional para que el iframe sea responsivo */
+  .iframe-container iframe {
+      max-width: 100%;
+      max-height: 100%;
+  }
+</style>
+
+<div class="iframe-container">
+  <iframe title="Visualizacion sentencias (2)" width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYjFhNjZjOGUtNGQ2NC00MjNlLTk1ZDgtYTg4Y2IyZGFjZDgyIiwidCI6IjA4YjViMTkzLWI5YmItNDNmMi05MjJiLTdlMjk0OGE0MDhlOSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+

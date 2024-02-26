@@ -42,6 +42,24 @@
     }
   //
   //
+
+
+  //nuevo código
+
+    let inputValue = "";
+    let responseData = null;
+    let urlServer = "http://localhost:3000";
+
+    const handleSubmit = async () => {
+      try {
+        const response = await fetch(`${urlServer}/search?query=${inputValue}`);
+        const data = await response.json();
+        responseData = data;
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+
   </script>
 
 <div class="container">
@@ -56,7 +74,7 @@
             type="text"
             class="form-control form-control-lg"
             placeholder="Buscar..."
-            bind:value='{requestSearch.text}'
+            bind:value={inputValue}
           />
         </div>
         <div class="flex-container">
@@ -90,7 +108,7 @@
       </div>
         <div class="checkbox mb-3">
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="button" on:click={search}>Buscar</button>
+        <button class="w-100 btn btn-lg btn-primary" type="button" on:click={handleSubmit}>Buscar</button>
         <div class="count">
         <button class="w-100 btn btn-lg btn-primary" type="button" on:click={count}>Contar</button>
         </div>
@@ -134,4 +152,48 @@
         </ul>
       </div>
     </div>
+    {#if responseData}
+    <h2>Resultados</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Providencia</th>
+          <th>Fecha sentencia</th>
+          <th>Tipo</th>
+          <th>Tipo proceso</th>
+          <th>Demandante</th>
+          <th>Resumen</th>
+        </tr>
+      </thead>
+      <tbody>
+        {#each responseData as row}
+          <tr>
+            <td>{row.metadata.Providencia}</td>
+            <td>{row.metadata['Fecha Sentencia']}</td>
+            <td>{row.metadata.Tipo}</td>
+            <td>{row.metadata['Tipo de proceso']}</td>
+            <td>{row.metadata.demandante}</td>
+            <td>
+              <textarea name="" id="" cols="40" rows="5">
+                {row.metadata.summary}
+              </textarea>
+            </td>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  {/if}
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
   </div>
