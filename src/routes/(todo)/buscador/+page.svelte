@@ -138,7 +138,7 @@
               <td>{row.metadata.demandante}</td>
               <td>
                 <textarea name="" id="" cols="40" rows="5">
-                  {row.metadata.summary}
+                  {row.metadata.summary_extract}
                 </textarea>
               </td>
             </tr>

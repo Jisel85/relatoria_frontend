@@ -20,6 +20,6 @@
 </style>
 
 <div class="iframe-container">
-  <iframe title="Visualizacion sentencias (2)" width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYjFhNjZjOGUtNGQ2NC00MjNlLTk1ZDgtYTg4Y2IyZGFjZDgyIiwidCI6IjA4YjViMTkzLWI5YmItNDNmMi05MjJiLTdlMjk0OGE0MDhlOSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+  <iframe title="Visualizacion sentencias (2)" width="1000" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiZGQ4ZDRlNDEtNzlhYS00MzgzLWI5YmUtNjZjYzA0M2MyYmVmIiwidCI6IjA4YjViMTkzLWI5YmItNDNmMi05MjJiLTdlMjk0OGE0MDhlOSIsImMiOjR9"  frameborder="0" allowFullScreen="true"></iframe>
 </div>
 
