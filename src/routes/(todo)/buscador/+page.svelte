@@ -33,146 +33,160 @@
     }
   };
 </script>
+<div style="width: 100%">
+  <div class="container">
+    <main class="form-signin w-100 m-auto">
+      <form>
+        <img class="mb-4" src="/logo_corte.png" alt="" width="100" height="100" />
+        <div class="title">
+          <h1 class="h3 mb-3 fw-normal">Buscador de relatoría</h1>
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Buscar..."
+            bind:value={requestSearch.text}
+          />
+        </div>
+        <div class="flex-container">
+          <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <select
+              class="form-control"
+              id="tipo"
+              bind:value={requestSearch.tipo}
+            >
+              <option value=""></option>
+              <option value="Constitucionalidad">Constitucionalidad</option>
+              <option value="Auto">Auto</option>
+              <option value="Tutela">Tutela</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="anio">Año:</label>
+            <select
+              class="form-control"
+              id="anio"
+              bind:value={requestSearch.anio}
+            >
+              <option value=""></option>
+              {#each Array.from({ length: 2023 - 1991 }, (_, i) => 2023 - i) as year}
+                <option value={year}>{year}</option>
+              {/each}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fecha_inicio">Fecha inicio:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_inicio"
+              bind:value={requestSearch.fecha_inicio}
+            />
+          </div>
+          <div class="form-group">
+            <label for="fecha_fin">Fecha fin:</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_fin"
+              bind:value={requestSearch.fecha_fin}
+            />
+          </div>
+          <div class="form-group">
+            <label for="fecha_fin"># Resultados:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="top_k"
+              bind:value={requestSearch.top_k}
+            />
+          </div>
+        </div>
+        <div class="checkbox mb-3"></div>
+        <button
+          class="w-100 btn btn-lg btn-primary"
+          type="button"
+          on:click={handleSubmit}>Buscar</button
+        >
+        <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+      </form>
+    </main>
+  </div>
 
-<div class="container">
-  <main class="form-signin w-100 m-auto">
-    <form>
-      <img class="mb-4" src="/logo_corte.png" alt="" width="100" height="100" />
-      <div class="title">
-        <h1 class="h3 mb-3 fw-normal">Buscador de relatoría</h1>
-      </div>
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control form-control-lg"
-          placeholder="Buscar..."
-          bind:value={requestSearch.text}
-        />
-      </div>
-      <div class="flex-container">
-        <div class="form-group">
-          <label for="tipo">Tipo:</label>
-          <select
-            class="form-control"
-            id="tipo"
-            bind:value={requestSearch.tipo}
-          >
-            <option value=""></option>
-            <option value="Constitucionalidad">Constitucionalidad</option>
-            <option value="Auto">Auto</option>
-            <option value="Tutela">Tutela</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="anio">Año:</label>
-          <select
-            class="form-control"
-            id="anio"
-            bind:value={requestSearch.anio}
-          >
-            <option value=""></option>
-            {#each Array.from({ length: 2023 - 1991 }, (_, i) => 2023 - i) as year}
-              <option value={year}>{year}</option>
-            {/each}
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="fecha_inicio">Fecha inicio:</label>
-          <input
-            type="date"
-            class="form-control"
-            id="fecha_inicio"
-            bind:value={requestSearch.fecha_inicio}
-          />
-        </div>
-        <div class="form-group">
-          <label for="fecha_fin">Fecha fin:</label>
-          <input
-            type="date"
-            class="form-control"
-            id="fecha_fin"
-            bind:value={requestSearch.fecha_fin}
-          />
-        </div>
-        <div class="form-group">
-          <label for="fecha_fin"># Resultados:</label>
-          <input
-            type="number"
-            class="form-control"
-            id="top_k"
-            bind:value={requestSearch.top_k}
-          />
-        </div>
-      </div>
-      <div class="checkbox mb-3"></div>
-      <button
-        class="w-100 btn btn-lg btn-primary"
-        type="button"
-        on:click={handleSubmit}>Buscar</button
-      >
-      <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
-    </form>
-  </main>
-
-  {#if responseData}
-    <h2>Resultados</h2>
-    <div class="table-responsive mt-4">
-      <table class="table table-striped mb-0" role="grid">
-        <thead>
-          <tr>
-            <th>Providencia</th>
-            <th>Fecha sentencia</th>
-            <th>Tipo</th>
-            <th>Tipo proceso</th>
-            <th>Demandante</th>
-            <th>Resumen</th>
-          </tr>
-        </thead>
-        <tbody>
-          {#each responseData as row}
+  <div style="padding: 0 1rem">
+    {#if responseData}
+      <h2>Resultados</h2>
+      <div class="table-responsive mt-4">
+        <table class="table table-striped mb-0" role="grid">
+          <thead>
             <tr>
-              <td>{row.metadata.Providencia}</td>
-              <td>{row.metadata["Fecha Sentencia"]}</td>
-              <td>{row.metadata.Tipo}</td>
-              <td>{row.metadata["Tipo de proceso"]}</td>
-              <td>{row.metadata.demandante}</td>
-              <td>
-                <textarea name="" id="" cols="40" rows="5">
-                  {row.metadata.summary_extract}
-                </textarea>
-              </td>
+              <th>Providencia</th>
+              <th>Información</th>
+              <th>Demandante</th>
+              <th>Tema</th>
+              <th>Resumen</th>
             </tr>
-          {/each}
-        </tbody>
-      </table>
-    </div>
-  {/if}
-
-  <style>
-    .table-responsive{
-      margin-top: 0px!important;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th,
-    td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: left;
-    }
-    h2 {
-      font-size: 20px;
-      margin-top: 40px;
-      color: white;
-      background-color: #95c5d1;
-      padding: 10px 10px;
-      font-weight: bold;
-      margin-bottom: 0;
-      border-bottom: 1px solid black;
-      text-align: center;
-      text-shadow: 1px 1px 2px black;
-    }
-  </style>
+          </thead>
+          <tbody>
+            {#each responseData as row}
+              <tr>
+                <td>
+                  {row.metadata.Providencia}<br>
+                  <a href="https://www.corteconstitucional.gov.co/relatoria/{row.metadata.anio}/{row.metadata.Providencia}.htm">
+                    Ver sentencia
+                  </a>
+                </td>
+                <td>
+                  <strong>Fecha: </strong>{row.metadata["Fecha Sentencia"]}<br>
+                  <strong>Tipo: </strong>{row.metadata.Tipo}<br>
+                  <strong>Tipo proceso: </strong>{row.metadata["Tipo de proceso"]}
+                </td>
+                <td>{row.metadata.demandante}</td>
+                <td>
+                  <textarea name="" id="" cols="40" rows="5">
+                    {row.metadata["Tema - subtema"]}
+                  </textarea>
+                </td>
+                <td>
+                  <textarea name="" id="" cols="40" rows="5">
+                    {row.metadata.summary_extract}
+                  </textarea>
+                </td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      </div>
+    {/if}
+  </div>
 </div>
+
+<style>
+  .table-responsive{
+    margin-top: 0px!important;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th,
+  td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 40px;
+    color: white;
+    background-color: #95c5d1;
+    padding: 10px 10px;
+    font-weight: bold;
+    margin-bottom: 0;
+    border-bottom: 1px solid black;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+  }
+</style>
